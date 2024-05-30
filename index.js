@@ -2,6 +2,7 @@ module.exports = function myPostCSSPlugin() {
   return {
     postcssPlugin: "my-postcss-plugin",
     Once(root) {
+      console.log(root.toString());
       // Iterate over each rule in the CSS
       root.walkRules((rule) => {
         // Check if the rule selector matches the overrides
