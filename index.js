@@ -1,10 +1,10 @@
 module.exports = function myPostCSSPlugin() {
   return {
     postcssPlugin: "my-postcss-plugin",
-    Once(root) {
-      root.walkRules((rule) => {
-        console.log(rule, "****\n");
-      });
+    Rule(rule) {
+      if (rule.selector.includes("[hidden]")) {
+        console.log(rule);
+      }
     },
   };
 };
