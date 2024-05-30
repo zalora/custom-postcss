@@ -60,12 +60,12 @@ module.exports = function myPostCSSPlugin() {
             const bottomIndex = nodes.findIndex((node) => node.prop === "margin-bottom");
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
-            if (endIndex !== -1) {
-              nodes[endIndex].prop = "margin-top";
+            if (bottomIndex !== -1) {
+              nodes[bottomIndex].prop = "margin-top";
             }
 
-            if (startIndex !== -1) {
-              nodes[startIndex].prop = "margin-bottom";
+            if (topIndex !== -1) {
+              nodes[topIndex].prop = "margin-bottom";
             }
           }
         }
