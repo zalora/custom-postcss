@@ -32,7 +32,7 @@ module.exports = function myPostCSSPlugin() {
             const endIndex = nodes.findIndex((node) => node.prop === "border-left-width");
             const startIndex = nodes.findIndex((node) => node.prop === "border-right-width");
 
-            console.log(endIndex, startIndex, rules.nodes);
+            console.log(endIndex, startIndex, rule.nodes);
             if (endIndex !== -1) {
               rule.nodes[endIndex].prop = "border-right-width";
             }
@@ -40,7 +40,7 @@ module.exports = function myPostCSSPlugin() {
             if (startIndex !== -1) {
               rule.nodes[startIndex].prop = "border-left-width";
             }
-            console.log("******", rules.nodes, "*********");
+            console.log("******", rule.nodes, "*********");
           }
 
           // update style for space-x
