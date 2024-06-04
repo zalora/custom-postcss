@@ -29,31 +29,29 @@ module.exports = function myPostCSSPlugin() {
 
           // update style for divide-x
           if (rule.selector.includes("divide-x")) {
-            const endIndex = nodes.findIndex((node) => node.prop === "border-inline-end-width");
-            const startIndex = nodes.findIndex((node) => node.prop === "border-inline-start-width");
+            const endIndex = nodes.findIndex((node) => node.prop === "border-left-width");
+            const startIndex = nodes.findIndex((node) => node.prop === "border-right-width");
 
-            console.log(rule.nodes, endIndex, startIndex);
             if (endIndex !== -1) {
-              rule.nodes[endIndex].prop = "border-inline-start-width";
+              rule.nodes[endIndex].prop = "border-right-width";
             }
 
             if (startIndex !== -1) {
-              rule.nodes[startIndex].prop = "border-inline-end-width";
+              rule.nodes[startIndex].prop = "border-left-width";
             }
-            console.log(rule.nodes);
           }
 
           // update style for space-x
           if (rule.selector.includes("space-x")) {
-            const endIndex = nodes.findIndex((node) => node.prop === "margin-inline-end");
-            const startIndex = nodes.findIndex((node) => node.prop === "margin-inline-start");
+            const endIndex = nodes.findIndex((node) => node.prop === "margin-right");
+            const startIndex = nodes.findIndex((node) => node.prop === "margin-left");
 
             if (endIndex !== -1) {
-              rule.nodes[endIndex].prop = "margin-inline-start";
+              rule.nodes[endIndex].prop = "margin-left";
             }
 
             if (startIndex !== -1) {
-              rule.nodes[startIndex].prop = "margin-inline-end";
+              rule.nodes[startIndex].prop = "margin-right";
             }
           }
 
