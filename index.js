@@ -25,6 +25,8 @@ module.exports = function myPostCSSPlugin() {
             if (topIndex !== -1) {
               nodes[topIndex].prop = "border-bottom-width";
             }
+
+            return;
           }
 
           // update style for divide-x
@@ -39,10 +41,12 @@ module.exports = function myPostCSSPlugin() {
             if (startIndex !== -1) {
               nodes[startIndex].prop = "border-inline-end-width";
             }
+
+            return;
           }
 
           // update style for space-x
-          if (rule.selector.includes("divide-x")) {
+          if (rule.selector.includes("space-x")) {
             const endIndex = nodes.findIndex((node) => node.prop === "margin-inline-end");
             const startIndex = nodes.findIndex((node) => node.prop === "margin-inline-start");
 
@@ -53,10 +57,12 @@ module.exports = function myPostCSSPlugin() {
             if (startIndex !== -1) {
               nodes[startIndex].prop = "margin-inline-end";
             }
+
+            return;
           }
 
           // update style for space-y
-          if (rule.selector.includes("divide-x")) {
+          if (rule.selector.includes("space-y")) {
             const bottomIndex = nodes.findIndex((node) => node.prop === "margin-bottom");
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
@@ -67,6 +73,8 @@ module.exports = function myPostCSSPlugin() {
             if (topIndex !== -1) {
               nodes[topIndex].prop = "margin-bottom";
             }
+
+            return;
           }
         }
       });
