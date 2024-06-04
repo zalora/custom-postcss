@@ -32,7 +32,6 @@ module.exports = function myPostCSSPlugin() {
             const endIndex = nodes.findIndex((node) => node.prop === "border-left-width");
             const startIndex = nodes.findIndex((node) => node.prop === "border-right-width");
 
-            console.log(endIndex, startIndex, rule.nodes);
             if (endIndex !== -1) {
               rule.nodes[endIndex].prop = "border-right-width";
             }
@@ -40,11 +39,10 @@ module.exports = function myPostCSSPlugin() {
             if (startIndex !== -1) {
               rule.nodes[startIndex].prop = "border-left-width";
             }
-            console.log("******", rule.nodes, "*********");
           }
 
-          // update style for space-x
-          if (rule.selector.includes("space-x")) {
+          // update style for row-gap
+          if (rule.selector.includes("row-gap")) {
             const endIndex = nodes.findIndex((node) => node.prop === "margin-right");
             const startIndex = nodes.findIndex((node) => node.prop === "margin-left");
 
@@ -57,8 +55,8 @@ module.exports = function myPostCSSPlugin() {
             }
           }
 
-          // update style for space-y
-          if (rule.selector.includes("space-y")) {
+          // update style for column-gap
+          if (rule.selector.includes("column-gap")) {
             const bottomIndex = nodes.findIndex((node) => node.prop === "margin-bottom");
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
