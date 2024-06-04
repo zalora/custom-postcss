@@ -19,14 +19,12 @@ module.exports = function myPostCSSPlugin() {
             const topIndex = nodes.findIndex((node) => node.prop === "border-top-width");
 
             if (bottomIndex !== -1) {
-              nodes[bottomIndex].prop = "border-top-width";
+              rule.nodes[bottomIndex].prop = "border-top-width";
             }
 
             if (topIndex !== -1) {
-              nodes[topIndex].prop = "border-bottom-width";
+              rule.nodes[topIndex].prop = "border-bottom-width";
             }
-
-            return;
           }
 
           // update style for divide-x
@@ -35,14 +33,12 @@ module.exports = function myPostCSSPlugin() {
             const startIndex = nodes.findIndex((node) => node.prop === "border-inline-start-width");
 
             if (endIndex !== -1) {
-              nodes[endIndex].prop = "border-inline-start-width";
+              rule.nodes[endIndex].prop = "border-inline-start-width";
             }
 
             if (startIndex !== -1) {
-              nodes[startIndex].prop = "border-inline-end-width";
+              rule.nodes[startIndex].prop = "border-inline-end-width";
             }
-
-            return;
           }
 
           // update style for space-x
@@ -51,14 +47,12 @@ module.exports = function myPostCSSPlugin() {
             const startIndex = nodes.findIndex((node) => node.prop === "margin-inline-start");
 
             if (endIndex !== -1) {
-              nodes[endIndex].prop = "margin-inline-start";
+              rule.nodes[endIndex].prop = "margin-inline-start";
             }
 
             if (startIndex !== -1) {
-              nodes[startIndex].prop = "margin-inline-end";
+              rule.nodes[startIndex].prop = "margin-inline-end";
             }
-
-            return;
           }
 
           // update style for space-y
@@ -67,14 +61,12 @@ module.exports = function myPostCSSPlugin() {
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
             if (bottomIndex !== -1) {
-              nodes[bottomIndex].prop = "margin-top";
+              rule.nodes[bottomIndex].prop = "margin-top";
             }
 
             if (topIndex !== -1) {
-              nodes[topIndex].prop = "margin-bottom";
+              rule.nodes[topIndex].prop = "margin-bottom";
             }
-
-            return;
           }
         }
       });
