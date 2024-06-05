@@ -43,7 +43,6 @@ module.exports = function myPostCSSPlugin() {
 
           // update style for space-x
           if (rule.selector.includes("space-x")) {
-            console.log("***");
             const endIndex = nodes.findIndex((node) => node.prop === "margin-right");
             const startIndex = nodes.findIndex((node) => node.prop === "margin-left");
 
@@ -61,7 +60,6 @@ module.exports = function myPostCSSPlugin() {
             const bottomIndex = nodes.findIndex((node) => node.prop === "margin-bottom");
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
-            console.log(bottomIndex, topIndex, rule.nodes);
             if (bottomIndex !== -1) {
               rule.nodes[bottomIndex].prop = "margin-top";
             }
