@@ -41,8 +41,8 @@ module.exports = function myPostCSSPlugin() {
             }
           }
 
-          // update style for row-gap
-          if (rule.selector.includes("row-gap")) {
+          // update style for space-x
+          if (rule.selector.includes("space-x")) {
             console.log("***");
             const endIndex = nodes.findIndex((node) => node.prop === "margin-right");
             const startIndex = nodes.findIndex((node) => node.prop === "margin-left");
@@ -56,9 +56,8 @@ module.exports = function myPostCSSPlugin() {
             }
           }
 
-          // update style for column-gap
-          if (rule.selector.includes("column-gap")) {
-            console.log("###");
+          // update style for space-y
+          if (rule.selector.includes("space-y")) {
             const bottomIndex = nodes.findIndex((node) => node.prop === "margin-bottom");
             const topIndex = nodes.findIndex((node) => node.prop === "margin-top");
 
@@ -69,10 +68,6 @@ module.exports = function myPostCSSPlugin() {
             if (topIndex !== -1) {
               rule.nodes[topIndex].prop = "margin-bottom";
             }
-          }
-
-          if (rule.selector.includes("space-y")) {
-            console.log(rule.selector, rule.nodes);
           }
         }
       });
